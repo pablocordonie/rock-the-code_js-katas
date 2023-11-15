@@ -1,61 +1,132 @@
 // Ejercicio 1
+
 // 1.1 Crea una variable llamada myFavoriteHero, asigna el valor Hulk a ella.
+
+const myFavoriteHero = 'Hulk';
+
 // 1.2 Crea una variable llamada x, asigna el valor 50 a ella.
+
+const x = 50;
+
 // 1.3 Crea una variable llamada 'h' con el valor 5 y otra 'y' con el valor 10.
+
+const h = 5;
+
+const y = 10;
+
 // 1.4 Crea una otra variable 'z' y asignale el valor de 'h' + 'y'.
+
+const z = h + y;
 
 // Ejercicio 2
 
 // 2.1 Dado el siguiente objeto, cambia el valor de la propiedad age a 25.
-// const character = {name: 'Jack Sparrow', age: 10};
 
-// 2.2 Declara 3 variables con los nombres y valores siguientes
-// firstName = 'Jon';
-// lastName = 'Snow';
-// age = 24;
-// Muestralos por consola de esta forma:
-// 'Soy Jon Snow, tengo 24 años y me gustan los lobos.'
+const character = { name: 'Jack Sparrow', age: 10 };
+
+character.age = 25;
+
+// 2.2 Declara 3 variables con los nombres y valores siguientes:
+
+const firstName = 'Jon';
+const lastName = 'Snow';
+const age = 24;
+
+// Muestralos por consola de esta forma: 'Soy Jon Snow, tengo 24 años y me gustan los lobos.'
+
+console.log('Soy ' + firstName + ' ' + lastName + ', tengo ' + age + ' años y me gustan los lobos.');
 
 // 2.3 Dado el siguiente código, imprime con un console.log la suma del precio de ambos juguetes.
-// const toy1 = {name: 'Buss myYear', price: 19};
-// const toy2 = {name: 'Rallo mcKing', price: 29};
+
+const toy1 = { name: 'Buss myYear', price: 19 };
+const toy2 = { name: 'Rallo mcKing', price: 29 };
+
+console.log('El resultado de la suma del precio de ambos juguetes es ' + (toy1.price + toy2.price));
 
 // 2.4 Dado el siguiente código, actualiza el valor de la variable globalBasePrice a 25000 y actualiza la propiedad finalPrice de todos los coches con el valor de su propiedad basePrice más el valor de la variable globalBasePrice.
-// let globalBasePrice = 10000;
-// const car1 = {name: 'BMW m&m', basePrice: 50000, finalPrice: 60000};
-// const car2 = {name: 'Chevrolet Corbina', basePrice: 70000, finalPrice: 80000};
+
+let globalBasePrice = 10000;
+const car1 = { name: 'BMW m&m', basePrice: 50000, finalPrice: 60000 };
+const car2 = { name: 'Chevrolet Corbina', basePrice: 70000, finalPrice: 80000 };
+
+globalBasePrice = 25000;
+
+car1.finalPrice = car1.basePrice + globalBasePrice;
+car2.finalPrice = car2.basePrice + globalBasePrice;
 
 // Ejercicio 3
 
 // 3.1 Multiplica 10 por 5 y muestra el resultado mediante console.
 
+console.log(10 * 5);
+
 // 3.2 Divide 10 por 2 y muestra el resultado en un console.
+
+console.log(10 / 2);
 
 // 3.3 Muestra mediante un console el resto de dividir 15 por 9.
 
+console.log(15 % 9);
+
 // 3.4 Usa el correcto operador de asignación que resultará en o = 15, teniendo dos variables p = 10 y j = 5.
+
+const p = 10;
+const j = 5;
+
+const o = p + j;
 
 // 3.5 Usa el correcto operador de asignación que resultará en i = 50, teniendo dos variables c = 10 y m = 5.
 
+const c = 10;
+const m = 5;
+
+const i = c * m;
+
 // Ejercicio 4
 
-// 1.1 Consigue el valor "HULK" del array de avengers y muestralo por consola.
-// const avengers = ["HULK", "SPIDERMAN", "BLACK PANTHER"];
+// 4.1 Consigue el valor "HULK" del array de avengers y muestralo por consola.
 
-// 1.2 Cambia el primer elemento de avengers a "IRONMAN"
-// const avengers = ["HULK", "SPIDERMAN", "BLACK PANTHER"];
+const avengers = ["HULK", "SPIDERMAN", "BLACK PANTHER"];
 
-// 1.3 console numero de elementos en el array usando la propiedad correcta de Array.
-// const avengers = ["HULK", "SPIDERMAN", "BLACK PANTHER"];
+const hulk = avengers[0];
 
-// 1.4 Añade 2 elementos al array: "Morty" y "Summer". Muestra en consola el último personaje del array
-// const rickAndMortyCharacters = ["Rick", "Beth", "Jerry"];
+console.log(hulk);
 
-// 1.5 Elimina el último elemento del array y muestra el primero y el último por consola.
-// const rickAndMortyCharacters = ["Rick", "Beth", "Jerry", "Morty", "Summer", "Lapiz Lopez"];
+// 4.2 Cambia el primer elemento de avengers a "IRONMAN".
 
-// 1.6 Elimina el segundo elemento del array y muestra el array por consola.
-// const rickAndMortyCharacters = ["Rick", "Beth", "Jerry", "Morty", "Summer", "Lapiz Lopez"];
+avengers.splice(0, 1, 'IRONMAN');
+
+console.log(avengers);
+
+// 4.3 Muestra por console el número de elementos que hay en el array usando la propiedad correcta de Array.
+
+console.log('En el array avengers existen ' + avengers.length + ' elementos');
+
+// 4.4 Añade 2 elementos al array: "Morty" y "Summer". Muestra en consola el último personaje del array
+
+const rickAndMortyCharacters = ["Rick", "Beth", "Jerry"];
+
+rickAndMortyCharacters.push('Morty', 'Summer');
+
+console.log(rickAndMortyCharacters);
+
+console.log(rickAndMortyCharacters[rickAndMortyCharacters.length - 1]);
+
+// 4.5 Elimina el último elemento del array y muestra el primero y el último por consola.
+
+const rickAndMortyCharacters_2 = ["Rick", "Beth", "Jerry", "Morty", "Summer", "Lapiz Lopez"];
+
+rickAndMortyCharacters_2.pop();
+
+console.log(rickAndMortyCharacters_2[0] + ' y ' + rickAndMortyCharacters_2[rickAndMortyCharacters_2.length - 1]);
+
+// 4.6 Elimina el segundo elemento del array y muestra el array por consola.
+
+const rickAndMortyCharacters_3 = ["Rick", "Beth", "Jerry", "Morty", "Summer", "Lapiz Lopez"];
+
+rickAndMortyCharacters_3.splice(1, 1);
+
+console.log(rickAndMortyCharacters_3);
 
 // Ejercicio 5
 
@@ -262,9 +333,9 @@ if ($) {
 // Mixed For e includes: Usa un bucle for para recorrer todos los juguetes y elimina los que incluyan la palabra gato. Recuerda que puedes usar la función .includes() para comprobarlo. Puedes usar este array:
 
 /* const toys = [
-  {id: 5, name: 'Buzz MyYear'}, 
-  {id: 11, name: 'Action Woman'}, 
-  {id: 23, name: 'Barbie Man'}, 
+  {id: 5, name: 'Buzz MyYear'},
+  {id: 11, name: 'Action Woman'},
+  {id: 23, name: 'Barbie Man'},
   {id: 40, name: 'El gato con Guantes'},
   {id: 40, name: 'El gato felix'}
 ]; */
@@ -276,11 +347,11 @@ if ($) {
 // const popularToys = [];
 
 /* const toys = [
-	{id: 5, name: 'Buzz MyYear', sellCount: 10}, 
-	{id: 11, name: 'Action Woman', sellCount: 24}, 
-	{id: 23, name: 'Barbie Man', sellCount: 15}, 
-	{id: 40, name: 'El gato con Guantes', sellCount: 8},
-	{id: 40, name: 'El gato felix', sellCount: 35}
+  {id: 5, name: 'Buzz MyYear', sellCount: 10},
+  {id: 11, name: 'Action Woman', sellCount: 24},
+  {id: 23, name: 'Barbie Man', sellCount: 15},
+  {id: 40, name: 'El gato con Guantes', sellCount: 8},
+  {id: 40, name: 'El gato felix', sellCount: 35}
 ]; */
 
 // Ejercicio 21
