@@ -130,98 +130,139 @@ console.log(rickAndMortyCharacters_3);
 
 // Ejercicio 5
 
-// const number1 = 10;
-// const number2 = 20;
-// const number3 = 2;
+const number1 = 10;
+const number2 = 20;
+const number3 = 2;
 
 // ejemplo
-// if(number1 === 10) {
-//    console.log('number1 es estrictamente igual a 10')
-// }
+if (number1 === 10) {
+  console.log('number1 es estrictamente igual a 10')
+}
 
 // Completa las siguientes condiciones sustituyendo el $:
-/* if ($) {
+
+if (number2 / number1 == 2) {
   console.log('number2 dividido entre number1 es igual a 2')
 }
 
-if ($) {
+if (number1 !== number2) {
   console.log('number1 es estrictamente distinto a number2')
 }
 
-if ($) {
+if (number3 != number1) {
   console.log('number3 es distinto number1')
 }
 
-if ($) {
+if (number3 * 5 == number1) {
   console.log('number3 por 5 es igual a number1')
 }
 
-if ($) {
+if (number3 * 5 == number1 && number1 * 2 == number2) {
   console.log(
     'number3 por 5 es igual a number1 Y number1 por 2 es igual a number2'
   )
 }
 
-if ($) {
+if (number2 / 2 == number1 || number1 / 5 == number3) {
   console.log(
     'number2 entre 2 es igual a number1 O number1 entre 5 es igual a number3'
   )
-} */
+}
 
 // Ejercicio 6
 
 // 6.1 Crea un bucle for que vaya desde 0 a 9 y muestralo por consola.
 
+for (let i = 0; i <= 9; i++) {
+  console.log(i);
+}
+
 // 6.2 Crea un bucle for que vaya desde 0 a 9 y muestralo por consola solo cuando el resto del numero dividido entre 2 sea 0.
 
+for (let i = 0; i <= 9; i++) {
+  if (i % 2 == 0) {
+    console.log(i);
+  }
+}
+
 // 6.3 Crea un bucle para conseguir dormir contando ovejas. Este bucle tiene que dar 10 vueltas, es decir, 10 console.log. Muestra por consola un mensaje diciendo 'Intentando dormir 🐑' en cada vuelta del bucle y cambia el mensaje en la décima vuelta a 'Dormido!'.
+
+for (let i = 0; i <= 10; i++) {
+  if (i === 10) {
+    console.log('Dormido!');
+  } else {
+    console.log('Intentando dormir 🐑');
+  }
+}
 
 // Ejercicio 7
 
 // Completa la función que tomando dos números como argumento devuelva el más alto.
 
-/* function sum(numberOne, numberTwo) {
-  // insert code
-} */
+function sum(numberOne, numberTwo) {
+  if (numberOne > numberTwo) {
+    return `El número ${numberOne} es el más alto`;
+  } else if (numberOne < numberTwo) {
+    return `El número ${numberTwo} es el más alto`;
+  } else {
+    return 'Ninguno de los números es el más alto';
+  }
+}
+
+console.log(sum(8, 6));
 
 // Ejercicio 8
 
-// Buscar la palabra más larga Completa la función que tomando un array de strings como argumento devuelva el más largo, en caso de que dos strings tenga la misma longitud deberá devolver el primero.
+// Buscar la palabra más larga: Completa la función que tomando un array de strings como argumento devuelva el más largo, en caso de que dos strings tenga la misma longitud deberá devolver el primero.
 
 // Puedes usar este array para probar tu función:
 
-/* const avengers = [
+const avengers_2 = [
   'Hulk',
   'Thor',
   'IronMan',
   'Captain A.',
   'Spiderman',
   'Captain M.'
-] */
+];
 
-/* function findLongestWord(param) {
-  // insert code
-} */
+function findLongestWord(array) {
+  const longestWord = [''];
+  for (const avenger of array) {
+    if (avenger.length > longestWord[0].length) {
+      longestWord.pop();
+      longestWord.push(avenger);
+    }
+  }
+  return longestWord.toString();
+}
+
+findLongestWord(avengers_2);
 
 // Ejercicio 9
 
 // Calcular una suma puede ser tan simple como iterar sobre un array y sumar cada uno de los elementos. Implementa la función denominada sumAll que toma un array de números como argumento y devuelve la suma de todos los números de la matriz. Puedes usar este array para probar tu función:
 
-// const numbers_9 = [1, 2, 3, 5, 45, 37, 58]
+const numbers_9 = [1, 2, 3, 5, 45, 37, 58]
 
-/* function sumAll(param) {
-  // insert code
-} */
+function sumAll(array) {
+  return `El resultado de la suma de todos los números dentro de este array es ${array.reduce((acc, currentValue) => acc + currentValue, 0)}`;
+};
+
+console.log(sumAll(numbers_9));
 
 // Ejercicio 10
 
 // Calcular un promedio (media) es una tarea extremadamente común. Puedes usar este array para probar tu función:
 
-// const numbers_10 = [12, 21, 38, 5, 45, 37, 6]
+const numbers_10 = [12, 21, 38, 5, 45, 37, 6]
 
-/* function average(param) {
-  // insert code
-} */
+function average(array) {
+  const result = array.reduce((acc, currentValue) => acc + currentValue / array.length, 0);
+  return `La media aritmética de todos los números dentro de este array es ${result.toFixed(2)}`;
+};
+
+console.log(average(numbers_10));
 
 // Ejercicio 11
 
