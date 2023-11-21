@@ -209,7 +209,7 @@ function sum(numberOne, numberTwo) {
   }
 }
 
-console.log(sum(8, 6));
+sum(8, 6);
 
 // Ejercicio 8
 
@@ -249,7 +249,7 @@ function sumAll(array) {
   return `El resultado de la suma de todos los números dentro de este array es ${array.reduce((acc, currentValue) => acc + currentValue, 0)}`;
 };
 
-console.log(sumAll(numbers_9));
+sumAll(numbers_9);
 
 // Ejercicio 10
 
@@ -262,23 +262,32 @@ function average(array) {
   return `La media aritmética de todos los números dentro de este array es ${result.toFixed(2)}`;
 };
 
-console.log(average(numbers_10));
+average(numbers_10);
 
 // Ejercicio 11
 
 // Calcular promedio de strings: Crea una función que reciba por parámetro un array y cuando es un valor number lo sume y de lo contrario cuente la longitud del string y lo sume. Puedes usar este array para probar tu función:
 
-// const mixedElements = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub'];
+const mixedElements = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub'];
 
-/* function averageWord(param) {
-  // insert code
-} */
+function averageWord(array) {
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    if (typeof element === 'string') {
+      array.splice(i, 1, element.length);
+    }
+  }
+  const result = array.reduce((acc, currentValue) => acc + currentValue / array.length, 0);
+  return `Incluyendo la longitud de caracteres de cada string además de los números, la media aritmética de todos los números dentro de este array es ${result.toFixed(2)}`;
+};
+
+averageWord(mixedElements);
 
 // Ejercicio 12
 
 // Valores únicos: Crea una función que reciba por parámetro un array y compruebe si existen elementos duplicados, en caso que existan los elimina para retornar un array sin los elementos duplicados. Puedes usar este array para probar tu función:
 
-/* const duplicates = [
+const duplicates = [
   'sushi',
   'pizza',
   'burger',
@@ -290,17 +299,25 @@ console.log(average(numbers_10));
   'onion rings',
   'pasta',
   'soda'
-]; */
+];
 
-/* function removeDuplicates(param) {
-  // insert code
-} */
+function removeDuplicates(array) {
+  const arrayWithoutDuplicates = [];
+  array.forEach(duplicate => {
+    if (!arrayWithoutDuplicates.includes(duplicate)) {
+      arrayWithoutDuplicates.push(duplicate);
+    }
+  });
+  return arrayWithoutDuplicates;
+};
+
+removeDuplicates(duplicates);
 
 // Ejercicio 13
 
 // Buscador de nombres: Crea una función que reciba por parámetro un array y el valor que desea comprobar que existe dentro de dicho array - comprueba si existe el elemento, en caso que existan nos devuelve un true y la posición de dicho elemento y por la contra un false. Puedes usar este array para probar tu función:
 
-/* const nameFinder = [
+const nameFinder = [
   'Peter',
   'Steve',
   'Tony',
@@ -312,17 +329,25 @@ console.log(average(numbers_10));
   'Peggy',
   'Jessica',
   'Marc'
-]; */
+];
 
-/* function finderName(param) {
-  // insert code
-} */
+const finderName = (array, element) => {
+  if (array.includes(element)) {
+    return `${array.includes(element)}, ${element} se encuentra en la posición ${array.indexOf(element)} del array`;
+  } else {
+    return `${array.includes(element)}, ${element} no se encuentra en ninguna posición del array`;
+  };
+};
+
+finderName(nameFinder, 'Xabier');
+finderName(nameFinder, 'Peter');
+finderName(nameFinder, 'Magneto');
 
 // Ejercicio 14
 
 // Contador de repeticiones: Crea una función que nos devuelva el número de veces que se repite cada una de las palabras que lo conforma. Puedes usar este array para probar tu función:
 
-/* const counterWords = [
+const counterWords = [
   'code',
   'repeat',
   'eat',
@@ -334,11 +359,23 @@ console.log(average(numbers_10));
   'enjoy',
   'upgrade',
   'code'
-]; */
+];
 
-/* function repeatCounter(param) {
-  // insert code
-} */
+const repeatCounter = (arr) => {
+  let counter = {};
+  for (const word of arr) {
+    if (word in counter) {
+      counter[word]++;
+      console.log(`La palabra ${word} ha salido por vez ${counter[word]}ª`);
+    } else {
+      counter[word] = 1;
+      console.log(`La palabra ${word} ha salido por vez ${counter[word]}ª`);
+    }
+  }
+  return counter;
+};
+
+repeatCounter(counterWords);
 
 // Ejercicio 15
 
