@@ -524,63 +524,123 @@ console.log(adultUsersFilter(users));
 
 // Usa un for para remplazar todas las comidas que no sean veganas con las frutas del array de frutas. Recuerda no usar frutas duplicadas. Finalmente, imprime el array resultante.
 
-// const fruits = ["Strawberry", "Banana", "Orange", "Apple"];
+const fruits = ["Strawberry", "Banana", "Orange", "Apple"];
 
-/* const foodSchedule = [
+const foodSchedule = [
   { name: "Heura", isVegan: true },
   { name: "Salmon", isVegan: false },
   { name: "Tofu", isVegan: true },
   { name: "Burger", isVegan: false },
   { name: "Rice", isVegan: true },
   { name: "Pasta", isVegan: true },
-]; */
+];
+
+const getVeganFood = (arr1, arr2) => {
+  const veganFood = [];
+  for (const plate of arr1) {
+    if (plate.isVegan) {
+      veganFood.push(plate.name);
+    }
+  }
+  for (const fruit of arr2) {
+    veganFood.push(fruit);
+  }
+  return veganFood.sort();
+}
+
+console.log(getVeganFood(foodSchedule, fruits));
 
 // Ejercicio 23
 
 // Usa un bucle para crear 3 arrays de peliculas filtrados por categorias. Pelicula pequeña, menos de 100 minutos, pelicula mediana, mas de 100 minutos y menos de 200 y pelicula grande, mas de 200 minutos. Imprime cada array en por consola.
 
-/* const movies = [
+const movies = [
   { name: "Titan A.E.", durationInMinutes: 130 },
   { name: "Nightmare before Christmas", durationInMinutes: 225 },
   { name: "Inception", durationInMinutes: 165 },
   { name: "The Lord of the Rings", durationInMinutes: 967 },
   { name: "Star Wars: A New Hope", durationInMinutes: 214 },
   { name: "Terminator", durationInMinutes: 140 },
-]; */
+];
+
+const shortMovies = [];
+const mediumMovies = [];
+const longMovies = [];
+
+movies.forEach(movie => {
+  if (movie.durationInMinutes < 100) {
+    shortMovies.push(movie);
+  } else if (movie.durationInMinutes > 100 && movie.durationInMinutes < 200) {
+    mediumMovies.push(movie);
+  } else {
+    longMovies.push(movie);
+  }
+});
+
+console.log(shortMovies, mediumMovies, longMovies);
 
 // Ejercicio 24
 
 // Usa un bucle para sumar el total de las ventas (sellCount) de todos los productos.
 
-/* const products = [
+const products_2 = [
   { name: "Funko Dr. Strange", sellCount: 10 },
   { name: "Mochila de protones: Ghostbusters", sellCount: 302 },
   { name: "Sable laser FX", sellCount: 23 },
   { name: "Varita de Voldemort", sellCount: 6 },
-]; */
+];
+
+const totalSales = (array) => {
+  const sales = [];
+  array.forEach(product => sales.push(product.sellCount));
+  return sales.reduce((acc, value) => acc + value, 0);
+};
+
+totalSales(products_2);
 
 // Ejercicio 25
 
 // Usa un bucle para sumar el total de las ventas (sellCount) de todos los productos y mostrar por consola la media de ventas.
 
-/* const products = [
+const products_3 = [
   { name: "Funko Dr. Strange", sellCount: 10 },
   { name: "Mochila de protones: Ghostbusters", sellCount: 302 },
   { name: "Sable laser FX", sellCount: 23 },
   { name: "Varita de Voldemort", sellCount: 6 },
-]; */
+];
+
+const averageSales = (array) => {
+  const sales = [];
+  array.forEach(product => sales.push(product.sellCount));
+  return 'La media de las ventas totales es ' + sales.reduce((acc, value) => acc + value / sales.length, 0) + ' €';
+};
+
+console.log(averageSales(products_3));
 
 // Ejercicio 26
 
 // Usa un bucle para recorrer el array de productos (products) y añade al array goodProducts los que tengan más de 20 ventas (sellCount) y al array badProducts los que tengan menos.
 
-// const goodProducts = [];
+const goodProducts = [];
+const badProducts = [];
 
-// const badProducts = [];
-
-/* const products = [
+const products_4 = [
   { name: "Funko Dr. Strange", sellCount: 10 },
   { name: "Mochila de protones: Ghostbusters", sellCount: 302 },
   { name: "Sable laser FX", sellCount: 23 },
   { name: "Varita de Voldemort", sellCount: 6 },
-]; */
+];
+
+const sortProductsBySales = (arr1, arr2, arr3) => {
+  arr1.forEach(product => {
+    if (product.sellCount > 20) {
+      arr2.push(product);
+    } else {
+      arr3.push(product);
+    }
+  });
+  console.log(arr2);
+  console.log(arr3);
+};
+
+sortProductsBySales(products_4, goodProducts, badProducts);
